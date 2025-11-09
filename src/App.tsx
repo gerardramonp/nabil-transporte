@@ -142,8 +142,7 @@ function App() {
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">
             Nuestros Servicios
           </h2>
-
-          <div className="flex flex-row justify-between gap-8">
+          <div className="flex flex-col md:flex-row justify-between gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
