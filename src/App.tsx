@@ -1,40 +1,45 @@
-import { Truck, Package, MapPin, Clock, Phone, Mail, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import {
+  Truck,
+  Drill,
+  Phone,
+  Mail,
+  Menu,
+  X,
+  ArchiveRestore,
+} from "lucide-react";
+import { useState } from "react";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const services = [
     {
-      title: 'Transporte Local',
-      description: 'Servicio de transporte dentro de la ciudad y áreas cercanas',
-      price: '$50 - $100',
+      title: "Transporte Local",
+      description:
+        "Servicio de transporte dentro de la ciudad y áreas cercanas",
+      price: "50 €/h",
       icon: Truck,
     },
+
     {
-      title: 'Transporte Nacional',
-      description: 'Envíos a todo el país con seguimiento en tiempo real',
-      price: '$200 - $500',
-      icon: MapPin,
+      title: "Mudanzas",
+      description:
+        "Mudanzas con camión y personal capacitado. Cuidadosos y rápidos",
+      price: "50 €/h",
+      icon: ArchiveRestore,
     },
     {
-      title: 'Transporte Express',
-      description: 'Entrega urgente en 24 horas o menos',
-      price: '$150 - $300',
-      icon: Clock,
-    },
-    {
-      title: 'Mudanzas',
-      description: 'Servicio completo de mudanzas residenciales y comerciales',
-      price: '$300 - $800',
-      icon: Package,
+      title: "Montaje de muebles",
+      description: "Servicio de montaje y desmontaje de muebles a domicilio",
+      price: "50 €/h",
+      icon: Drill,
     },
   ];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
   };
@@ -44,26 +49,26 @@ function App() {
       <header className="fixed top-0 w-full bg-white shadow-md z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <img src="/Gemini_Generated_Image_ble5seble5seble5.png" alt="Nabil Logo" className="h-12 w-12" />
-              <span className="text-2xl font-bold text-gray-900">Nabil</span>
+            <div className="flex items-center space-x-2">
+              <img src="/logo.jpeg" alt="Nabil Logo" className="h-12 w-12" />
+              <span className="text-2xl font-bold text-gray-900">NabilSof</span>
             </div>
 
             <div className="hidden md:flex space-x-8">
               <button
-                onClick={() => scrollToSection('inicio')}
+                onClick={() => scrollToSection("inicio")}
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
               >
                 Inicio
               </button>
               <button
-                onClick={() => scrollToSection('servicios')}
+                onClick={() => scrollToSection("servicios")}
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
               >
                 Servicios
               </button>
               <button
-                onClick={() => scrollToSection('contacto')}
+                onClick={() => scrollToSection("contacto")}
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
               >
                 Contacto
@@ -86,19 +91,19 @@ function App() {
             <div className="md:hidden pb-4">
               <div className="flex flex-col space-y-3">
                 <button
-                  onClick={() => scrollToSection('inicio')}
+                  onClick={() => scrollToSection("inicio")}
                   className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
                 >
                   Inicio
                 </button>
                 <button
-                  onClick={() => scrollToSection('servicios')}
+                  onClick={() => scrollToSection("servicios")}
                   className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
                 >
                   Servicios
                 </button>
                 <button
-                  onClick={() => scrollToSection('contacto')}
+                  onClick={() => scrollToSection("contacto")}
                   className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-left"
                 >
                   Contacto
@@ -111,19 +116,20 @@ function App() {
 
       <section
         id="inicio"
-        className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-white"
+        className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-[url('/bg-landing.jpg')] bg-cover bg-center bg-no-repeat"
       >
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-            Transporte Confiable
-            <span className="block text-blue-600 mt-2">Con Nabil</span>
+        <div className="absolute inset-0 bg-black/55 backdrop-blur-sm"></div>
+        <div className="relative max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
+            Transportes
+            <span className=" text-blue-600 mt-2"> NabilSof</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Soluciones de transporte profesionales para todas tus necesidades.
-            Rápido, seguro y confiable.
+          <p className="text-xl text-white max-w-2xl mx-auto mb-8">
+            Soluciones de transporte profesionales, mudanzas y montaje de
+            muebles
           </p>
           <button
-            onClick={() => scrollToSection('contacto')}
+            onClick={() => scrollToSection("contacto")}
             className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
           >
             Contáctanos Ahora
@@ -133,20 +139,17 @@ function App() {
 
       <section id="servicios" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">
             Nuestros Servicios
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Ofrecemos una amplia gama de servicios de transporte adaptados a tus necesidades
-          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-row justify-between gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+                  className="w-full bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
                 >
                   <div className="bg-blue-100 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
                     <Icon className="h-7 w-7 text-blue-600" />
@@ -174,12 +177,13 @@ function App() {
             Contacto
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Estamos aquí para ayudarte. Contáctanos para más información sobre nuestros servicios
+            Estamos aquí para ayudarte. Contáctanos para más información sobre
+            nuestros servicios
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
                   <Phone className="h-6 w-6 text-blue-600" />
                 </div>
@@ -191,14 +195,14 @@ function App() {
                     href="tel:+1234567890"
                     className="text-gray-600 hover:text-blue-600 transition-colors"
                   >
-                    +1 (234) 567-890
+                    664 451 763
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 p-3 rounded-lg">
                   <Mail className="h-6 w-6 text-blue-600" />
                 </div>
@@ -223,10 +227,10 @@ function App() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Truck className="h-6 w-6 text-blue-400" />
-            <span className="text-xl font-bold">Nabil</span>
+            <span className="text-xl font-bold">NabilSof</span>
           </div>
           <p className="text-gray-400">
-            © 2025 Nabil Transportes. Todos los derechos reservados.
+            © 2025 NabilSof. Todos los derechos reservados.
           </p>
         </div>
       </footer>
